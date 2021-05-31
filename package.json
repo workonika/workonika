@@ -1,0 +1,11 @@
+{
+  "name": "workonika",
+  "version": "1.0.0",
+  "description": "опрос",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kuzmin anton antofer@mail.ru",
+  "license": "ISC"
+}
