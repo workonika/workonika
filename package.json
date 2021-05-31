@@ -2,10 +2,13 @@
   "name": "workonika",
   "version": "1.0.0",
   "description": "опрос",
-  "main": "server.js",
+  "main": "workonika.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kuzmin anton antofer@mail.ru",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
