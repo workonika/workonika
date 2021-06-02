@@ -19,10 +19,8 @@ app.get('/headers', (req, res) => {
 
 app.get('/send', (req, res) => {
     res.type('text/plain')
-    console.log('req.query', req.query)
-    console.log('req.session', req.session)
-    console.log('req.cookie', req.cookie)
-    res.send('req:req')
+    console.log('req.xhr', req.xhr)
+    res.send('req:xhr')
 })
 
 app.use((req, res) => {
