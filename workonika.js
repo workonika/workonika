@@ -19,8 +19,12 @@ app.get('/headers', (req, res) => {
 
 app.get('/send', (req, res) => {
     res.type('text/plain')
-    res.send('asdfljkjkdsf')
+    console.log('req.query', req.query)
+    console.log('req.session', req.session)
+    console.log('req.cookie', req.cookie)
+    res.send('req:req')
 })
+
 app.use((req, res) => {
     res.status(404)
     res.render('404')
