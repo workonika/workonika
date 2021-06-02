@@ -1,10 +1,14 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
+const bodyParser = require('body-parser')
 
 const app = express()
 app.engine('handlebars', expressHandlebars({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 app.use(express.static(__dirname + '/public'))
+app.use(bodyParser.urlencoded({extended: false}))
+
+console.log('bodyParser', bodyParser)
 
 const port = process.env.PORT || 3000
 
@@ -22,6 +26,11 @@ app.get('/send', (req, res) => {
     console.log('req.xhr', req.xhr)
     res.send('req:xhr')
 })
+const tours = [
+    { id: 0, name: 'Худ-Ривер', price: 99.99 },
+    { id: 1, name: 'Орегон Коуст', price: 149.95 },
+]
+app.get('/api/tours', (req, res) => res.json(tours))
 
 app.use((req, res) => {
     res.status(404)
