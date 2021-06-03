@@ -1,0 +1,10 @@
+<h1>Ответьте на вопрос</h1>
+<blockquote>
+    Каково Ваше отношение к происходящему?
+</blockquote>
+
+<form action="/survey/process?form=newsletter" method="POST">
+    <input type="hidden" name="token" value="{{csrf}}" />
+    <textarea name="answer"></textarea>
+    <input type="submit" value="Отправить"/>
+</form>

@@ -1,12 +1,13 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
+const handlers = require('./handlers')
 
 const app = express()
 app.engine('handlebars', expressHandlebars({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 app.use(express.static(__dirname + '/public'))
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: true}))
 
 console.log('bodyParser', bodyParser)
 
@@ -26,6 +27,12 @@ app.get('/send', (req, res) => {
     console.log('req.xhr', req.xhr)
     res.send('req:xhr')
 })
+
+app.get('/survey', handlers.survey)
+
+app.post('/survey/process', handlers.surveyProcess)
+
+app.get('/survey/thank-you', handlers.surveyThankYou)
 
 const tours = [
     { id: 0, name: 'Худ-Ривер', price: 99.99 },
